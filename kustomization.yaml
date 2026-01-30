@@ -6,4 +6,6 @@ resources:
 - base/mongo-deployment.yaml
 - base/mongo-service.yaml
 - base/ingress.yaml
+- base/argocd-deployment.yaml
+- base/argocd-service.yaml
 namespace: mykube
