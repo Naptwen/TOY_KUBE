@@ -1,0 +1,32 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: myingress
+  labels:
+    app.kubernetes.io/name: myingress
+spec:
+  rules:
+  - host: mylocal
+    http:
+      paths:
+      - pathType: Prefix
+        path: /mysql
+        backend:
+          service:
+            name: mysql
+            port: 
+              number: 5070
+      - pathType: Prefix
+        path: /redis
+        backend:
+          service:
+            name: myredis
+            port: 
+              number: 5080
+      - pathType: Prefix
+        path: /mongo
+        backend:
+          service:
+            name: mymongo
+            port:
+              number: 5090          

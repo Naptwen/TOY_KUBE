@@ -1,0 +1,9 @@
+resources:
+- base/redis-deployment.yaml
+- base/redis-service.yaml
+- base/mysql-deployment.yaml
+- base/mysql-service.yaml
+- base/mongo-deployment.yaml
+- base/mongo-service.yaml
+- base/ingress.yaml
+namespace: mykube

@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myredis
+  annotations:
+    description: "Redis"
+  namespace: mykube
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: myredis
+  template:
+    metadata:
+      labels:
+        app: myredis
+    spec:
+      containers:
+      - name: myredis
+        image: my-redis:latest
+        ports:
+        - containerPort: 6379
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "125m"
+          limits:
+            memory: "256Mi"
+            cpu: "250m"

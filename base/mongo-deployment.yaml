@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mymongo
+  annotations:
+    description: "MongoDB"
+  namespace: mykube
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mymongo
+  template:
+    metadata:
+      labels:
+        app: mymongo
+    spec:
+      containers:
+      - name: mymongo
+        image: my-mongo:latest
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "125m"
+          limits:
+            memory: "256Mi"
+            cpu: "250m"
