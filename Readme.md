@@ -1,0 +1,1 @@
+## This is the base format for kube + kustomize + github-ci
