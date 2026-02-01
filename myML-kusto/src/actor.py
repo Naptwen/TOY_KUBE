@@ -2,7 +2,7 @@ import os
 import time
 import pickle
 import redis
-import gym
+import gymnasium as gym
 import numpy as np
 import torch
 import io

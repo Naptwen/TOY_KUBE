@@ -1,6 +1,6 @@
 FROM python:3.9-slim
 
 WORKDIR /app
-RUN pip install redis gym numpy torch
+RUN pip install redis gymnasium numpy torch
 COPY myML-kusto/src/actor.py .
 CMD ["python", "-u", "actor.py"]

@@ -16,7 +16,7 @@ spec:
       containers:
       - name: learner
         image: my-learner:latest
-        imagePullPolicy: Always
+        imagePullPolicy: IfNotPresent
         env:
         - name: REDIS_HOST
           value: "myredis.mykube"
