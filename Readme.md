@@ -1,9 +1,24 @@
 ## This is the base format for kube + kustomize + github-ci
-1. create namespace
+1. Docker build
 ```
-kubectl get pods -n myargocd
+Docker build -f Dockerfile.mysql -t my-mysql:latest . 
+Docker build -f Dockerfile.redis -t my-redis:latest . 
+Docker build -f Dockerfile.mongo -t my-mongo:latest . 
 ```
-2. run kustomize
+
+2. create ingress controller
+```
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.10.0/deploy/static/provider/cloud/deploy.yaml
+```
+3. run kustomize
 ```
 kubectl apply -k .
+```
+4. kubectl dashboard
+```
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.7.0/aio/deploy/recommended.yaml
+kubectl create serviceaccount dashboard-admin-user -n kubernetes-dashboard
+kubectl create clusterrolebinding dashboard-admin-user --clusterrole=cluster-admin --serviceaccount=kubernetes-dashboard:dashboard-admin-user
+kubectl proxy
+kubectl -n kubernetes-dashboard create token dashboard-admin-user
 ```

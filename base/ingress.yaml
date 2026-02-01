@@ -4,10 +4,12 @@ metadata:
   name: myingress
   labels:
     app.kubernetes.io/name: myingress
+  annotations:
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
 spec:
+  ingressClassName: nginx
   rules:
-  - host: mylocal
-    http:
+  - http:
       paths:
       - pathType: Prefix
         path: /mysql
@@ -17,7 +19,7 @@ spec:
             port: 
               number: 5070
       - pathType: Prefix
-        path: /redis
+        path: /myredis
         backend:
           service:
             name: myredis
@@ -29,4 +31,15 @@ spec:
           service:
             name: mymongo
             port:
-              number: 5090          
+              number: 5090
+      - pathType: Prefix
+        path: /argocd
+        backend:
+          service:
+            name: argocd-server
+            port:
+              number: 443
+          # service:
+          #   name: argocd-server
+          #   port:
+          #     number: 80          

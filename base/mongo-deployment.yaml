@@ -18,6 +18,7 @@ spec:
       containers:
       - name: mymongo
         image: my-mongo:latest
+        imagePullPolicy: IfNotPresent
         resources:
           requests:
             memory: "128Mi"

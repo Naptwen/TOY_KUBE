@@ -18,6 +18,7 @@ spec:
       containers:
       - name: mysql
         image: my-mysql:latest
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 3306
         resources:
@@ -25,5 +26,5 @@ spec:
             memory: "128Mi"
             cpu: "125m"
           limits:
-            memory: "256Mi"
-            cpu: "250m"
+            memory: "512Mi"
+            cpu: "500m"
