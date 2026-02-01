@@ -32,14 +32,3 @@ spec:
             name: mymongo
             port:
               number: 5090
-      - pathType: Prefix
-        path: /argocd
-        backend:
-          service:
-            name: argocd-server
-            port:
-              number: 443
-          # service:
-          #   name: argocd-server
-          #   port:
-          #     number: 80          

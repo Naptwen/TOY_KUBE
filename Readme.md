@@ -12,8 +12,11 @@ kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/cont
 ```
 3. run kustomize
 ```
-kubectl apply -k .
+kubectl apply -k argocd-kusto
+kubectl apply -k mykube-kusto
 ```
+4. ArgoCD
+https://localhost/argocd
 4. kubectl dashboard
 ```
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.7.0/aio/deploy/recommended.yaml
@@ -21,4 +24,5 @@ kubectl create serviceaccount dashboard-admin-user -n kubernetes-dashboard
 kubectl create clusterrolebinding dashboard-admin-user --clusterrole=cluster-admin --serviceaccount=kubernetes-dashboard:dashboard-admin-user
 kubectl proxy
 kubectl -n kubernetes-dashboard create token dashboard-admin-user
+http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/
 ```
