@@ -6,14 +6,13 @@ metadata:
     app.kubernetes.io/name: ml-ingress
   annotations:
     nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
-    nginx.ingress.kubernetes.io/rewrite-target: /$2
 spec:
   ingressClassName: nginx
   rules:
   - http:
       paths:
-      - pathType: ImplementationSpecific
-        path: /learner(/|$)(.*)
+      - pathType: Prefix
+        path: /learner
         backend:
           service:
             name: mylearner

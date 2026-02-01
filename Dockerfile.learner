@@ -5,4 +5,4 @@ RUN pip install --upgrade redis gymnasium numpy tensorboard
 COPY myML-kusto/src/learner.py .
 
 # start.sh 대신 bash에서 직접 실행
-CMD ["/bin/bash", "-c", "tensorboard --logdir=/app/logs --bind_all --port=6006 & python -u learner.py"]
+CMD ["/bin/bash", "-c", "tensorboard --logdir=/app/logs --bind_all --port=6006 --path_prefix=/learner & python -u learner.py"]
