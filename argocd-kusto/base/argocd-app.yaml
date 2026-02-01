@@ -1,17 +1,17 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: my-ml-app
+  name: my-local-app
   namespace: argocd
 spec:
   project: default
   source:
     repoURL: https://github.com/Naptwen/TOY_KUBE.git
     targetRevision: distribution-#1
-    path: myML-kusto
+    path: mykube-kusto
   destination:
     server: https://kubernetes.default.svc
-    namespace: myml
+    namespace: mykube
   syncPolicy:
     automated:
       prune: true
