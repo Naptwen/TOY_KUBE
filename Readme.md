@@ -12,7 +12,9 @@ kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/cont
 ```
 3. run kustomize
 ```
+kubectl create namespace argocd
 kubectl apply -k argocd-kusto
+kubectl create namespace mykube
 kubectl apply -k mykube-kusto
 ```
 4. ArgoCD
