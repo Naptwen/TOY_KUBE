@@ -4,5 +4,7 @@ resources:
 # namespace setting
 - base/namespace.yaml
 # My app setting
-- base/redis-deployment.yaml
-- base/redis-service.yaml
+- base/actor-deployment.yaml
+- base/learner-deployment.yaml
+- base/learner-service.yaml
+- base/ingress.yaml

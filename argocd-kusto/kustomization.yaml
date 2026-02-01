@@ -3,8 +3,9 @@ kind: Kustomization
 namespace: argocd
 resources:
 - https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
-- base/argocd-ingress.yaml
-- base/argocd-app.yaml
+- base/ingress.yaml
+- base/argocd-db-app.yaml
+- base/argocd-ml-app.yaml
 patches:
 - target:
     group: apps

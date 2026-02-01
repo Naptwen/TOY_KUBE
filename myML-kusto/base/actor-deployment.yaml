@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: actor-deployment
+  namespace: myml
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: actor
+  template:
+    metadata:
+      labels:
+        app: actor
+    spec:
+      containers:
+      - name: actor
+        image: my-actor:latest
+        imagePullPolicy: Always
+        env:
+        - name: REDIS_HOST
+          value: "myredis.mykube"
+        - name: REDIS_PORT
+          value: "5080"
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "500m" 
+          limits:
+            memory: "512Mi"
+            cpu: "1"

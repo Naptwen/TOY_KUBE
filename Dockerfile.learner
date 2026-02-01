@@ -1,0 +1,8 @@
+FROM pytorch/pytorch:2.1.0-cuda12.1-cudnn8-runtime
+
+WORKDIR /app
+RUN pip install redis gym numpy torch tensorboard
+COPY myML-kusto/src/learner.py .
+COPY myML-kusto/src/start.sh .
+RUN chmod +x start.sh
+CMD ["./start.sh"]

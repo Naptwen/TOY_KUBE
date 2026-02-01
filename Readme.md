@@ -4,6 +4,8 @@
 Docker build -f Dockerfile.mysql -t my-mysql:latest . 
 Docker build -f Dockerfile.redis -t my-redis:latest . 
 Docker build -f Dockerfile.mongo -t my-mongo:latest . 
+Docker build -f Dockerfile.learner -t my-learner:latest . 
+Docker build -f Dockerfile.actor -t my-actor:latest . 
 ```
 
 2. create ingress controller

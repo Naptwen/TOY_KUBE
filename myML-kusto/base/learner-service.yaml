@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: mylearner
+  namespace: myml
+spec:
+  selector:
+    app: learner
+  ports:
+  - protocol: TCP
+    port: 5100
+    targetPort: 6006
