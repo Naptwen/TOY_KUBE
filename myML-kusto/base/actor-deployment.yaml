@@ -16,7 +16,7 @@ spec:
       containers:
       - name: actor
         image: my-actor:latest
-        imagePullPolicy: Always
+        imagePullPolicy: IfNotPresent
         env:
         - name: REDIS_HOST
           value: "myredis.mykube"
