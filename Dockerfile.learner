@@ -1,8 +1,8 @@
 FROM pytorch/pytorch:2.1.0-cuda12.1-cudnn8-runtime
 
 WORKDIR /app
-RUN pip install redis gymnasium numpy tensorboard torch tensorboard
+RUN pip install --upgrade redis gymnasium numpy tensorboard
 COPY myML-kusto/src/learner.py .
-COPY myML-kusto/src/start.sh .
-RUN chmod +x start.sh
-CMD ["./start.sh"]
+
+# start.sh 대신 bash에서 직접 실행
+CMD ["/bin/bash", "-c", "tensorboard --logdir=/app/logs --bind_all --port=6006 & python -u learner.py"]
